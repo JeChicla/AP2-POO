@@ -29,9 +29,4 @@ public class Main {
         madoka.exibirInfo();
     }
 
-
-
-
-
     }
-}
