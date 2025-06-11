@@ -6,29 +6,28 @@ import org.example.Util.Filme;
 
 public class Main {
     public static void main(String[] args) {
-        Usuario joao = new Usuario("João");
-        Usuario maria = new Usuario("Maria");
-        Usuario valen = new Usuario("Valen");
-        Usuario homura = new Usuario("Homura");
+        Usuario joao = new Usuario("joao12345");
+        Usuario maria = new Usuario("maria02");
+        Usuario valen = new Usuario("valen1");
+        Usuario homura = new Usuario("homura_akemi");
 
-        Filme matrix = new Filme("Matrix", 1999, 120);
-        Serie madoka = new Serie("Madoka", 2011,12);
+        Filme matrix = new Filme("Matrix", 1999, "Diretor", 10, 120);
+        Serie madoka = new Serie("Madoka", 2011, "Diretor2", 14, 12);
 
         Genero ficcao = new Genero("Ficção Científica");
         Genero acao = new Genero("Ação");
         Genero fantasia = new Genero("Fantasia");
-        
-        homura.adicionarFilme("Rebelion",2014,110);
+
 
         homura.seguirUsuario(valen);
         valen.listarSeguidores();
 
-        homura.escreverReview(madoka,10.0f,"peak","absolute cinema");
-        homura.exibirReviews();
+        homura.exibirReviewsUsuario();
         fantasia.adicionarConteudo(madoka);
         fantasia.listarConteudo();
 
-        
+        madoka.exibirInfo();
+    }
 
 
 

@@ -1,51 +1,32 @@
 package org.example.Util;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Usuario {
-    private String nome;
+    private String username;
     private List<Conteudo> conteudoAdicionado;
-    private List<Review> reviews;
+    private Collection<Review> reviews = new ArrayList<>();
     private List<Conteudo> favoritos;
     private List<Usuario> seguidores;
     private List<Usuario> seguindo;
 
-    public Usuario(String nome) {
-        this.nome = nome;
+    public Usuario(String username) {
+        this.username = username;
         this.conteudoAdicionado = new ArrayList<>();
-        this.reviews = new ArrayList<>();
         this.favoritos = new ArrayList<>();
         this.seguidores = new ArrayList<>();
         this.seguindo = new ArrayList<>();
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void adicionarFilme(String titulo, int lancamento, int duracao) {
-        Filme filme = new Filme(titulo,lancamento,duracao);
-        System.out.println("filme:" + filme.getTitulo());
-    }
-    public void adicionarSerie(String titulo, int lancamento, int episodios) {
-        Serie serie = new Serie(titulo,lancamento,episodios);
-        System.out.println("serie:" + serie.getTitulo());
-    }
-
-    public void escreverReview(Conteudo conteudo, float nota, String titulo, String comentario) {
-        Review review = new Review(Collections.singleton(this), conteudo, nota, titulo, comentario);
-        reviews.add(review);
-    }
-
-    public void exibirReviews() {
+    public void exibirReviewsUsuario() {
         System.out.println("reviews:");
-        for (Review r : reviews)  /*
-             For (Objeto <instancia> : lista) ou seja, para cada
-             objeto do tipo <instancia> contido na lista "lista".
-             tem bastantes desses for in range no codigo.
-            */ {
+        for (Review r : reviews){
             System.out.println("Titulo: "+ r.getTitulo());
             System.out.println("Nota: " + r.getNota());
             System.out.println("Comentario: " + r.getComentario());
@@ -69,7 +50,7 @@ public class Usuario {
         if (!seguindo.contains(u)) {
             seguindo.add(u);
             u.seguidores.add(this);
-            System.out.println("seguindo á:" + u.getNome());
+            System.out.print("seguindo: " + u.getUsername() + "\n");
         }
         else {
             System.out.println("Operação invalida");
@@ -77,16 +58,16 @@ public class Usuario {
     }
 
     public void listarSeguidores() {
-        System.out.println("Seguidores:");
+        System.out.print("Seguidores: ");
         for (Usuario u : seguidores) {
-            System.out.println(u.getNome());
+            System.out.print(u.getUsername() + "\n");
             }
     }
 
     public void listarSeguindo() {
         System.out.println("Seguindo:");
         for (Usuario u : seguindo) {
-            System.out.println(u.getNome());
+            System.out.println(u.getUsername() + "\n");
         }
     }
 

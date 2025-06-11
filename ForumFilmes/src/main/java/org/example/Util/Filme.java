@@ -1,19 +1,17 @@
 package org.example.Util;
 
 
-
-public class Filme extends Conteudo{
+public class Filme extends Conteudo {
     private int duracao;
 
-    public Filme(String titulo, int lancamento, int duracao) {
-        super(titulo, lancamento);
+    public Filme(String titulo, int lancamento, String diretor, int classificacao, int duracao) {
+        super(titulo, lancamento, diretor, classificacao);
         this.duracao = duracao;
     }
 
     @Override
     public void exibirInfo() {
-        System.out.println("Filme: " + titulo + " Lançamento: " + lancamento
-        + " Duração: " + duracao);
+        System.out.print("Filme: " + titulo + "\n" + "Lançamento: " + lancamento + "\n" + "Diretor: " + diretor + "\n" + "Classificação indicativa: " + classificacao + "\n" + "Duração: " + duracao + "\n");
     }
 
     @Override
@@ -26,3 +24,5 @@ public class Filme extends Conteudo{
         return super.getLancamento();
     }
 }
+
+

@@ -24,11 +24,9 @@ public class Genero {
     }
 
     public void listarConteudo() {
-        System.out.println(nomeGenero + ":");
+        System.out.print(nomeGenero + ":");
         for (Conteudo c : conteudos) {
-            System.out.println(c.getTitulo());
+            System.out.print(c.getTitulo() + "\n");
         }
     }
-
-    public void adicionarConteudo(){}
 }
